@@ -1,0 +1,11 @@
+@import "../../../dinotable.scss";
+
+.box {
+  color: $primary-color;
+  background-color: $primary-bg-color;
+  width: 100px;
+  height: 100px;
+  padding: 10px;
+  border: $primary-color 1px solid;
+  border-radius: 10px;
+}

@@ -3,5 +3,43 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "dinotable": {
+      "projectType": "library",
+      "root": "projects/dinotable",
+      "sourceRoot": "projects/dinotable/src",
+      "prefix": "dt",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "prefix": "dt"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/dinotable/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/dinotable/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/dinotable/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/dinotable/src/test.ts",
+            "tsConfig": "projects/dinotable/tsconfig.spec.json",
+            "karmaConfig": "projects/dinotable/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "dinotable"
 }
